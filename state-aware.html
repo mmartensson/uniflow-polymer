@@ -20,6 +20,11 @@ limitations under the License.
 <script type="text/javascript">
   var UniFlow = window.UniFlow || {};
 
+  UniFlow.application = UniFlow.application || {
+    element: null,
+    stateAwareElements: []
+  };
+
   /**
    Key mixin that must be assigned to all elements that need to access
    application state and/or have access to the application element. The element is
@@ -101,9 +106,8 @@ limitations under the License.
            */
           application: {
             type: Object,
-            value: {
-              element: null,
-              stateAwareElements: []
+            value: function() {
+              return UniFlow.application;
             }
           }
 
